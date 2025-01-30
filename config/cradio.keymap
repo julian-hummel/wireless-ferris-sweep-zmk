@@ -180,9 +180,9 @@
 
        		left_layer {
 		bindings = <
-		&mt QMARK EXCL &kp AT &kp HASH &tap_ae  &kp PRCT				&kp DE_A_UMLAUT &tap_ue &tap_oe &kp LA(S) &kp BKSP 
-		&kp TAB &mt BSLH SLASH &mt TILDE DLLR &mt GRAVE SQT &kp DQT 			&kp LPAR &kp RPAR &kp LBRC &kp RBRC &kp ENTER 
-		&kp ESC &kp CARET &kp LA(S) &kp RS(NUM_0) &kp LS(NUM_6) 		&kp LBKT &kp RBKT &kp LT &kp GT &kp TAB 
+		&mt QMARK EXCL &kp AT &kp HASH &tap_ae  &kp PRCT				&kp DE_A_UMLAUT &kp DE_U_UMLAUT &kp DE_O_UMLAUT &kp DE_CAPITAL_SZ &kp BKSP 
+		&kp TAB &mt BSLH SLASH &mt TILDE DLLR &mt GRAVE SQT &kp DQT 			&kp DE_LPAR &kp DE_RPAR &kp DE_LBRC &kp DE_RBRC &kp ENTER 
+		&kp ESC &kp CARET &kp LA(S) &kp RS(NUM_0) &kp LS(NUM_6) 		&kp DE_LBKT &kp DE_RBKT &kp DE_LESS_THAN &kp DE_GREATER_THAN &kp TAB 
 					    &mt PIPE AMPS &kp EQUAL				&trans &mo 2 
 		>;
 		};
