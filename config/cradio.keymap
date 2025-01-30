@@ -8,7 +8,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-
+#include <locale/keys_de.h>
 
 &mt {
   flavor = "tap-preferred";
@@ -180,7 +180,7 @@
 
        		left_layer {
 		bindings = <
-		&mt QMARK EXCL &kp AT &kp HASH &tap_ae  &kp PRCT				&tap_ae &tap_ue &tap_oe &kp LA(S) &kp BKSP 
+		&mt QMARK EXCL &kp AT &kp HASH &tap_ae  &kp PRCT				&kp DE_A_UMLAUT &tap_ue &tap_oe &kp LA(S) &kp BKSP 
 		&kp TAB &mt BSLH SLASH &mt TILDE DLLR &mt GRAVE SQT &kp DQT 			&kp LPAR &kp RPAR &kp LBRC &kp RBRC &kp ENTER 
 		&kp ESC &kp CARET &kp LA(S) &kp RS(NUM_0) &kp LS(NUM_6) 		&kp LBKT &kp RBKT &kp LT &kp GT &kp TAB 
 					    &mt PIPE AMPS &kp EQUAL				&trans &mo 2 
