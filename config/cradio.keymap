@@ -8,6 +8,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <locale/keys_de.h>
 
 
 &mt {
@@ -97,109 +98,39 @@
         
     };
     
-    macros {
-        german_oe: german_oe {
-            label = "german_oe";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap_time 0>
-	    	      ,<&macro_tap &kp DQT &kp O>;
-        };
-	german_ae: german_ae {
-            label = "german_ae";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap_time 0>
-	    	      ,<&macro_tap &kp DQT &kp A>;
-        };
-	german_ue: german_ue {
-            label = "german_ue";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap_time 0>
-	    	      ,<&macro_tap &kp DQT &kp U>;
-        }; 
-	german_ue_b: german_ue_b {
-            label = "german_ue_b";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap_time 0>
-	    	      ,<&macro_tap &kp DQT &kp LS(U)>;
-        }; 
-	german_oe_b: german_oe_b {
-            label = "german_oe_b";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap_time 0>
-	    	      ,<&macro_tap &kp DQT &kp LS(O)>;
-        }; 
-	german_ae_b: german_ae_b {
-            label = "german_ae_b";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap_time 0>
-	    	      ,<&macro_tap &kp DQT &kp LS(A)>;
-        }; 
-    };
-    
-    behaviors {
-    	tap_ue: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&german_ue>, <&german_ue_b>;
-        };
-	tap_oe: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_1";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&german_oe>, <&german_oe_b>;
-        };
-	tap_ae: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_2";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&german_ae>, <&german_ae_b>;
-        };
-    };
+
+
 
         keymap {
                 compatible = "zmk,keymap";
                 
        		default_layer {
 		bindings = <
-		&kp Q &kp W &kp E &kp R &kp T 						&kp Z &kp U  &kp I &kp O &kp P
-		&kp A &kp S &kp D &mt LCTRL F &kp G 			      			&kp H &mt LGUI J &mt LCTRL K &kp L &kp LALT
-		&kp Y &kp X &kp C &kp V &kp B				        &kp M &kp N  &mt SEMI CMMA &mt COLON DOT &kp LSFT 
-          				 &mo 2 &kp LSFT  		        	&kp SPC &mo 1 
+		&kp DE_Q &kp DE_W &kp DE_E &kp DE_R &kp DE_T 						&kp DE_Z &kp DE_U  &kp DE_I &kp DE_O &kp DE_P
+		&kp DE_A &kp DE_S &kp DE_D &mt LCTRL DE_F &kp DE_G 			      			&kp DE_H &mt LGUI DE_J &mt LCTRL DE_K &kp DE_L &kp LALT
+		&kp DE_Y &kp DE_X &kp DE_C &kp DE_V &kp DE_B				        &kp DE_M &kp DE_N  &mt DE_SEMI DE_COMMA &mt DE_COLON DE_DOT &kp LSFT 
+          				 &mo 2 &kp LSFT  		        	&kp DE_SPACE &mo 1 
 		>;
 		};
 
        		left_layer {
 		bindings = <
-		&mt QMARK EXCL &kp AT &kp HASH &tap_ae  &kp PRCT				&tap_ae &tap_ue &tap_oe &kp LA(S) &kp BKSP 
-		&kp TAB &mt BSLH SLASH &mt TILDE DLLR &mt GRAVE SQT &kp DQT 			&kp LPAR &kp RPAR &kp LBRC &kp RBRC &kp ENTER 
-		&kp ESC &kp CARET &kp LA(S) &kp RS(NUM_0) &kp LS(NUM_6) 		&kp LBKT &kp RBKT &kp LT &kp GT &kp TAB 
-					    &mt PIPE AMPS &kp EQUAL				&trans &mo 2 
-		>;
-		};
+		&mt DE_QMARK DE_EXCL &kp DE_AT &kp DE_HASH &kp DE_A_UMLAUT  &kp DE_PERCENT				&kp DE_A_UMLAUT &kp DE_U_UMLAUT &kp DE_O_UMLAUT &kp DE_SHARP_S &kp BKSP 
+		&kp TAB &mt DE_BSLH DE_SLASH &mt DE_TILDE DE_DLLR &mt DE_GRAVE DE_SQT &kp DE_DQT 			&kp DE_LPAR &kp DE_RPAR &kp DE_LBRC &kp DE_RBRC &kp ENTER 
+		&kp ESC &kp DE_CARET &kp DE_SHARP_S &kp DE_DEGREE &kp DE_AMPS 		&kp DE_LBKT &kp DE_RBKT &kp DE_LT &kp DE_GT &kp TAB 
+				    &mt DE_PIPE DE_AMPS &kp DE_EQUAL				&trans &mo 2 
 		
 		right_layer {
 		bindings = <
-		&kp APOS &kp SEMI &kp UP  &kp DLLR  &kp PRCT    			&kp PLUS  &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp RPRN 
-		&kp LBKT  &kp LEFT  &kp DOWN  &kp RIGHT  &mt LS(MINUS) MINUS		&mt LS(MINUS) MINUS &kp NUM_4  &kp NUM_5  &kp NUM_6   &kp BKSP
-		&bt BT_CLR  &kp KPLS &kp LBKT &kp RBKT   &kp BSLH    			&kp STAR &kp NUM_1 &kp NUM_2 &kp NUM_3  &kp RIGHT
-					  &mo 3 &trans  				&kp NUM_0  &mo 3 
-		>;
-		};	
+		&kp DE_APOS &kp DE_SEMI &kp UP  &kp DE_DLLR  &kp DE_PERCENT    			&kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_RPAR 
+		&kp DE_LBKT  &kp LEFT  &kp DOWN  &kp RIGHT  &mt LS(DE_MINUS) DE_MINUS		&mt LS(DE_MINUS) DE_MINUS &kp DE_N4  &kp DE_N5  &kp DE_N6   &kp BKSP
+		&bt BT_CLR  &kp DE_PLUS &kp DE_LBKT &kp DE_RBKT   &kp DE_BSLH    			&kp DE_STAR &kp DE_N1 &kp DE_N2 &kp DE_N3  &kp RIGHT
+				  &mo 3 &trans  				&kp DE_N0  &mo 3 
 		
 		tri_layer {
 		bindings = <
-		&kp NUM_1  &kp NUM_2 &kp NUM_3 &kp NUM_4 &bootloader 			&bootloader &kp C_PREV   &kp C_PP   &kp C_NEXT  &trans
-		&kp TAB &kp F2 &kp F3 &kp F12 &kp &trans  				&trans &kp PG_UP  &kp C_VOL_UP &kp C_MUTE &trans 
+		&kp DE_N1  &kp DE_N2 &kp DE_N3 &kp DE_N4 &bootloader 			&bootloader &kp C_PREV   &kp C_PP   &kp C_NEXT  &trans
+		&kp TAB &kp F2 &kp F3 &kp F12 &trans  				&trans &kp PG_UP  &kp C_VOL_UP &kp C_MUTE &trans 
 		&bt BT_CLR  &bt BT_PRV &bt BT_NXT &kp F6 &kp F7   			&trans &kp PG_DN  &kp C_VOL_DN &trans &trans   
 					 &trans &trans  				&trans &trans 
 		>;
