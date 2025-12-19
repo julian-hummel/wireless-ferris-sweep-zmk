@@ -119,11 +119,15 @@
 		&kp TAB &mt DE_BSLH DE_SLASH &mt DE_TILDE DE_DLLR &mt DE_GRAVE DE_SQT &kp DE_DQT 			&kp DE_LPAR &kp DE_RPAR &kp DE_LBRC &kp DE_RBRC &kp ENTER 
 		&kp ESC &kp DE_CARET &kp DE_SHARP_S &kp DE_DEGREE &kp DE_AMPS 		&kp DE_LBKT &kp DE_RBKT &kp DE_LT &kp DE_GT &kp TAB 
 				    &mt DE_PIPE DE_AMPS &kp DE_EQUAL				&trans &mo 2 
+		>;
+		};
 		
 		right_layer {
 		bindings = <
 		&kp DE_APOS &kp DE_SEMI &kp UP  &kp DE_DLLR  &kp DE_PERCENT    			&kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_RPAR 
 		&kp DE_LBKT  &kp LEFT  &kp DOWN  &kp RIGHT  &mt LS(DE_MINUS) DE_MINUS		&mt LS(DE_MINUS) DE_MINUS &kp DE_N4  &kp DE_N5  &kp DE_N6   &kp BKSP
+		>;
+		};	
 		&bt BT_CLR  &kp DE_PLUS &kp DE_LBKT &kp DE_RBKT   &kp DE_BSLH    			&kp DE_STAR &kp DE_N1 &kp DE_N2 &kp DE_N3  &kp RIGHT
 				  &mo 3 &trans  				&kp DE_N0  &mo 3 
 		
