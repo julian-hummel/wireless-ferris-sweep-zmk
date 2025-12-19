@@ -16,7 +16,18 @@
   tapping_term_ms = <200>;
 };
 
-/ { 
+/ {
+
+    behaviors {
+        bt_toggle: bt_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_TOGGLE";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <3000>;
+            bindings = <&bt>, <&kp>;
+        };
+    }; 
 
     combos {
         compatible = "zmk,combos";
@@ -95,7 +106,7 @@
         };
         
 
-        
+        bt_toggle BT_NXT
     };
     
 
@@ -106,7 +117,7 @@
                 
        		default_layer {
 		bindings = <
-		&kp DE_Q &kp DE_W &kp DE_E &kp DE_R &kp DE_T 						&kp DE_Z &kp DE_U  &kp DE_I &kp DE_O &kp DE_P
+		&kp DE_Q &kp DE_W &kp DE_E &bt_toggle BT_SEL 0 DE_R &bt_toggle BT_SEL 1 DE_T 						&kp DE_Z &kp DE_U  &kp DE_I &kp DE_O &kp DE_P
 		&kp DE_A &kp DE_S &kp DE_D &mt LCTRL DE_F &kp DE_G 			      			&kp DE_H &mt LGUI DE_J &mt LCTRL DE_K &kp DE_L &kp LALT
 		&kp DE_Y &kp DE_X &kp DE_C &kp DE_V &kp DE_B				        &kp DE_M &kp DE_N  &mt DE_SEMI DE_COMMA &mt DE_COLON DE_DOT &kp LSFT 
           				 &mo 2 &kp LSFT  		        	&kp DE_SPACE &mo 1 
