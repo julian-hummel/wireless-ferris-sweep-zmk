@@ -18,14 +18,37 @@
 
 / {
 
+    macros {
+        bt_prof_0: bt_prof_0 {
+            compatible = "zmk,behavior-macro";
+            label = "BT_PROF_0";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>;
+        };
+        bt_prof_1: bt_prof_1 {
+            compatible = "zmk,behavior-macro";
+            label = "BT_PROF_1";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>;
+        };
+    };
+
     behaviors {
-        bt_toggle: bt_toggle {
+        bt_0_hold: bt_0_hold {
             compatible = "zmk,behavior-hold-tap";
-            label = "BT_TOGGLE";
+            label = "BT_0_HOLD";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <3000>;
-            bindings = <&bt>, <&kp>;
+            bindings = <&bt_prof_0>, <&kp>;
+        };
+        bt_1_hold: bt_1_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_1_HOLD";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <3000>;
+            bindings = <&bt_prof_1>, <&kp>;
         };
     }; 
 
@@ -92,7 +115,7 @@
             key-positions = <11 12>;
             bindings = <&kp LALT>;
         };
-        
+		&kp DE_Q &kp DE_W &kp DE_E &bt_0_hold 0 DE_R &bt_1_hold 0 DE_T 						&kp DE_Z &kp DE_U  &kp DE_I &kp DE_O &kp DE_P
            combo_rgui {
             timeout-ms = <50>;
             key-positions = <17 18>;
@@ -105,8 +128,6 @@
             bindings = <&mo 3>;
         };
         
-
-        bt_toggle BT_NXT
     };
     
 
@@ -119,7 +140,7 @@
 		bindings = <
 		&kp DE_Q &kp DE_W &kp DE_E &bt_toggle BT_SEL 0 DE_R &bt_toggle BT_SEL 1 DE_T 						&kp DE_Z &kp DE_U  &kp DE_I &kp DE_O &kp DE_P
 		&kp DE_A &kp DE_S &kp DE_D &mt LCTRL DE_F &kp DE_G 			      			&kp DE_H &mt LGUI DE_J &mt LCTRL DE_K &kp DE_L &kp LALT
-		&kp DE_Y &kp DE_X &kp DE_C &kp DE_V &kp DE_B				        &kp DE_M &kp DE_N  &mt DE_SEMI DE_COMMA &mt DE_COLON DE_DOT &kp LSFT 
+		&kp DE_Y &kp DE_X &kp DE_C &kp DE_V &kLA(BT_SEL) 0 DE_R &bt_toggle LA(BT_SEL)DE_N  &mt DE_SEMI DE_COMMA &mt DE_COLON DE_DOT &kp LSFT 
           				 &mo 2 &kp LSFT  		        	&kp DE_SPACE &mo 1 
 		>;
 		};
