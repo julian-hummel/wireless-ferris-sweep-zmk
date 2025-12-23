@@ -73,7 +73,7 @@
             label = "BT_0_HOLD";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <3000>;
+            tapping-term-ms = <2000>;
             bindings = <&bt_prof_0>, <&kp>;
         };
         bt_1_hold: bt_1_hold {
@@ -81,7 +81,7 @@
             label = "BT_1_HOLD";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <3000>;
+            tapping-term-ms = <2000>;
             bindings = <&bt_prof_1>, <&kp>;
         };
     }; 
