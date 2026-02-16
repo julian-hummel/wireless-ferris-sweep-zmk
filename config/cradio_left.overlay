@@ -16,7 +16,6 @@
         zmk,kscan = &kscan0;
     };
 
-    /delete-node/ kscan;
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
@@ -30,10 +29,11 @@
         >;
     };
 
-    kscan0: kscan {
+    &kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
 
+        /delete-property/ input-gpios;
         diode-direction = "row2col";
 
         // Left side matrix configuration (from schematic)
