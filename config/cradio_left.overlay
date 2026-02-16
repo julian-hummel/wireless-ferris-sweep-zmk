@@ -34,7 +34,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
 
-        diode-direction = "col2row";
+        diode-direction = "row2col";
 
         // Left side matrix configuration (from schematic)
         // Row pins (4 rows) - Nice Nano pins 5, 6, 7, 8
