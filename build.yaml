@@ -14,8 +14,8 @@
 ---
 include:
   - board: nice_nano
-    shield: cradio_left
+    shield: sleeky_left
   - board: nice_nano
-    shield: cradio_right
+    shield: sleeky_right
   - board: nice_nano
     shield: settings_reset

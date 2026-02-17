@@ -12,12 +12,14 @@ export CMAKE_PREFIX_PATH="${ZEPHYR_BASE}/share/zephyr-package/cmake"
 cd zmk/app
 
 west build -p -d build/left -b nice_nano -- \
-  -DSHIELD=cradio_left \
-  -DZMK_CONFIG="/Users/jhummel2/wireless-ferris-sweep-zmk/config"
+  -DSHIELD=sleeky_left \
+  -DZMK_CONFIG="/Users/jhummel2/wireless-ferris-sweep-zmk/config" \
+  -DBOARD_ROOT="/Users/jhummel2/wireless-ferris-sweep-zmk"
 
 west build -p -d build/right -b nice_nano -- \
-  -DSHIELD=cradio_right \
-  -DZMK_CONFIG="/Users/jhummel2/wireless-ferris-sweep-zmk/config"
+  -DSHIELD=sleeky_right \
+  -DZMK_CONFIG="/Users/jhummel2/wireless-ferris-sweep-zmk/config" \
+  -DBOARD_ROOT="/Users/jhummel2/wireless-ferris-sweep-zmk"
 
 # Copy firmware files to convenient location
 cd ../..
