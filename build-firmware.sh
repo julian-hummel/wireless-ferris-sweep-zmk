@@ -11,7 +11,7 @@ export CMAKE_PREFIX_PATH="${ZEPHYR_BASE}/share/zephyr-package/cmake"
 
 cd zmk/app
 
-west build -p -d build/left -b nice_nano -- \
+west build -p -d build/left -b nice_nano -S zmk-usb-logging -- \
   -DSHIELD=sleeky_left \
   -DZMK_CONFIG="/Users/jhummel2/wireless-ferris-sweep-zmk/config" \
   -DBOARD_ROOT="/Users/jhummel2/wireless-ferris-sweep-zmk"
