@@ -1,0 +1,211 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <locale/keys_de.h>
+
+// macOS German keyboard overrides
+#undef DE_AT
+#define DE_AT (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_L)))
+
+#undef DE_BSLH  
+#define DE_BSLH (RA(LS(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_7_AND_AMPERSAND))))
+
+#undef DE_LBRC
+#define DE_LBRC (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_8_AND_ASTERISK)))
+
+#undef DE_RBRC
+#define DE_RBRC (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_9_AND_LEFT_PARENTHESIS)))
+
+#undef DE_LT
+#define DE_LT (ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_GRAVE_ACCENT_AND_TILDE))
+
+#undef DE_GT
+#define DE_GT (LS(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_GRAVE_ACCENT_AND_TILDE)))
+
+#undef DE_PIPE
+#define DE_PIPE (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_7_AND_AMPERSAND)))
+
+#undef DE_TILDE
+#define DE_TILDE (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_N)))
+
+#undef DE_LBKT
+#define DE_LBKT (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_5_AND_PERCENT)))
+
+#undef DE_RBKT
+#define DE_RBKT (RA(ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_6_AND_CARET)))
+
+
+&mt {
+  flavor = "tap-preferred";
+  tapping_term_ms = <200>;
+};
+
+
+
+
+/ {
+
+    macros {
+        bt_prof_0: bt_prof_0 {
+            compatible = "zmk,behavior-macro";
+            label = "BT_PROF_0";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>;
+        };
+        bt_prof_1: bt_prof_1 {
+            compatible = "zmk,behavior-macro";
+            label = "BT_PROF_1";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>;
+        };
+    };
+
+    behaviors {
+        bt_0_hold: bt_0_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_0_HOLD";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&bt_prof_0>, <&kp>;
+        };
+        bt_1_hold: bt_1_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_1_HOLD";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&bt_prof_1>, <&kp>;
+        };
+    }; 
+
+    combos {
+        compatible = "zmk,combos";
+	/*
+                           KEY POSITIONS
+          ╭────────────────────╮ ╭────────────────────╮
+          │  0   1   2   3   4 │ │  5   6   7   8   9 │
+          │ 10  11  12  13  14 │ │ 15  16  17  18  19 │
+          │ 20  21  22  23  24 │ │ 25  26  27  28  29 │
+          ╰───────────╮ 30  31 │ │ 32  33 ╭───────────╯
+                      ╰────────╯ ╰────────╯
+        */
+	
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+	
+	combo_ctrlaltright {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&kp LA(LSHIFT)>;
+        };
+	
+	combo_rectangle {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp LG(LSHIFT)>;
+        };
+      
+      	/* Activates the selection with the mouse for an area to screenshot. 
+	The screenshot is copied to the clipboard. */
+	screenshot_copy_to_clipboard {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp LG(LC(LS(NUM_4)))>;
+        };
+	
+	/* Activates the selection with the mouse for an area to screenshot. 
+	The screenshot is saved to the specified location. */
+	screenshot_with_save {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&kp LG(LS(NUM_4))>;
+        };
+	
+         combo_tab {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp TAB>;
+        };
+        
+            combo_ralt {
+            timeout-ms = <50>;
+            key-positions = <17 16>;
+            bindings = <&kp RALT>;
+        };
+        
+                    combo_lalt {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp LALT>;
+        };
+        
+           combo_rgui {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&kp RGUI>;
+        };
+	
+	to_last_layer {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&mo 3>;
+        };
+        
+    };
+
+    
+
+
+
+        keymap {
+                compatible = "zmk,keymap";
+                
+       		default_layer {
+		bindings = <
+		&kp DE_Q &kp DE_W &kp DE_E &bt_0_hold 0 DE_R &bt_1_hold 0 DE_T 					&kp DE_Z &kp DE_U  &kp DE_I &kp DE_O &kp DE_P
+		&kp DE_A &kp DE_S &kp DE_D &mt LCTRL DE_F &kp DE_G 		      			&kp DE_H &mt LGUI DE_J &mt LCTRL DE_K &kp DE_L &kp LA(LSHIFT)
+		&kp DE_Y &kp DE_X &kp DE_C &kp DE_V &kp DE_B			        &kp DE_M &kp DE_N  &mt DE_SEMI DE_COMMA &mt DE_COLON DE_DOT &kp LSFT 
+          			 &mo 2 &kp LSFT  		        	&kp DE_SPACE &mo 1 
+		>;
+		};
+
+       		left_layer {
+		bindings = <
+		&mt DE_QMARK DE_EXCL &kp DE_AT &kp DE_HASH &kp DE_A_UMLAUT  &kp DE_PERCENT				&kp DE_A_UMLAUT &kp DE_U_UMLAUT &kp DE_O_UMLAUT &kp DE_SHARP_S &kp BKSP 
+		&kp TAB &mt DE_BSLH DE_SLASH &mt DE_TILDE DE_DLLR &mt DE_GRAVE DE_SQT &kp DE_DQT 			&kp DE_LPAR &kp DE_RPAR &kp DE_LBRC &kp DE_RBRC &kp ENTER 
+		&kp ESC &kp DE_CARET &kp DE_TILDE &kp DE_DEGREE &kp DE_AMPS 		&kp DE_LBKT &kp DE_RBKT &kp DE_LT &kp DE_GT &kp TAB 
+			    &mt DE_PIPE DE_AMPS &kp DE_EQUAL			&trans &mo 2 
+		>;
+		};
+		
+		right_layer {
+		bindings = <
+		&kp DE_APOS &kp DE_SEMI &kp UP  &kp DE_DLLR  &kp DE_PERCENT    			&kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_RPAR 
+		&kp DE_LBKT  &kp LEFT  &kp DOWN  &kp RIGHT  &mt LS(DE_MINUS) DE_MINUS		&mt LS(DE_MINUS) DE_MINUS &kp DE_N4  &kp DE_N5  &kp DE_N6   &kp BKSP
+		&bt BT_CLR  &kp DE_PLUS &kp DE_LBKT &kp DE_RBKT   &kp DE_BSLH    			&kp DE_STAR &kp DE_N1 &kp DE_N2 &kp DE_N3  &kp RIGHT
+			  &mo 3 &trans  				&kp DE_N0  &mo 3 
+		>;
+		};	
+		
+		tri_layer {
+		bindings = <
+		&kp DE_N1  &kp DE_N2 &kp DE_N3 &kp DE_N4 &bootloader 			&bootloader &kp C_PREV   &kp C_PP   &kp C_NEXT  &trans
+		&kp TAB &kp F2 &kp F3 &kp F12 &trans  				&trans &kp PG_UP  &kp C_VOL_UP &kp C_MUTE &trans 
+		&bt BT_CLR  &bt BT_PRV &bt BT_NXT &kp F6 &kp F7   			&trans &kp PG_DN  &kp C_VOL_DN &trans &trans   
+				 &trans &trans  				&trans &trans 
+		>;
+		};	
+        
+	};
+};

@@ -1,0 +1,13 @@
+file_format: "1"
+id: sleeky
+name: Sleeky
+type: shield
+url: https://github.com/yourusername/sleeky
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  - sleeky_left
+  - sleeky_right
