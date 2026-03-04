@@ -32,6 +32,8 @@
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
         diode-direction = "col2row";
+        
+        /delete-property/ input-gpios;
 
         // Row configuration (same for both halves)
         row-gpios
