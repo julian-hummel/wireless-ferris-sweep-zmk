@@ -13,9 +13,9 @@
 ##
 ---
 include:
-  - board: nice_nano@zmk
+  - board: nice_nano/nrf52840/zmk
     shield: cradio_left
-  - board: nice_nano@zmk
+  - board: nice_nano/nrf52840/zmk
     shield: cradio_right
-  - board: nice_nano@zmk
+  - board: nice_nano/nrf52840/zmk
     shield: settings_reset
