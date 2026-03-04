@@ -1,1 +1,9 @@
 build
+modules/
+zephyr/
+zmk/
+zmk-locales/
+optional/
+.west/
+venv/
+*.log
